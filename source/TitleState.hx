@@ -90,6 +90,12 @@ class TitleState extends MusicBeatState
 		FlxG.autoPause = false;
 		
 		FlxG.mouse.visible = false;
+		
+		#if (hxvlc < "1.4.1")
+		hxvlc.libvlc.Handle.init();
+        #else
+		hxvlc.util.Handle.init();
+		#end
 
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
