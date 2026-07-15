@@ -297,7 +297,7 @@ class StoryMenuState extends MusicBeatState
 		selectedWeek = true;
 
 		var diffic = "";
-		var video:MP4Handler = new MP4Handler();
+		//var video:MP4Handler = new MP4Handler();
 
 		switch (curDifficulty)
 		{
@@ -315,14 +315,7 @@ class StoryMenuState extends MusicBeatState
 		PlayState.campaignMisses = 0;
 		new FlxTimer().start(1, function(tmr:FlxTimer)
 		{
-			if (curWeek == 0)
-			{
-				video.playMP4(Paths.video('cut1'), new PlayState());
-			}
-			else
-			{
 				LoadingState.loadAndSwitchState(new PlayState(), true);
-			}
 		});
 	}
 
