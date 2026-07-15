@@ -1,0 +1,46 @@
+[
+    {
+        "profile": "default",
+        "pkgs": [
+            {
+                "name": "flixel",
+                "version": "5.2.2"
+            },
+            {
+                "name": "flixel-addons",
+                "version": "3.0.2"
+            },
+            {
+                "name": "flixel-ui",
+                "version": "2.5.0"
+            },
+            {
+                "name": "hscript",
+                "version": "2.5.0"
+            },
+            {
+                "name": "hxcpp",
+                "link": "https://github.com/ShadowEngineTeam/hxcpp",
+                "branch": "main"
+            },
+            {
+                "name": "hxvlc",
+                "version": "1.7.1"
+            },
+            {
+                "name": "lime",
+                "link": "https://github.com/QQQEB159/lime-8.2.2",
+                "branch": "b60d13d75b97e927ef30abdbdb93d92078b8fa1e"
+            },
+            {
+				"name": "linc_luajit",
+				"link": "https://github.com/ShadowEngineTeam/linc_luajit",
+				"branch": "master"
+			},
+            {
+                "name": "openfl",
+                "version": "9.2.2"
+            }
+        ]
+    }
+]

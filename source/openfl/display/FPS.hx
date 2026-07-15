@@ -86,7 +86,7 @@ class FPS extends TextField
 			var memoryMegas:Float = 0;
 			
 			#if openfl
-			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+			memoryMegas = Math.abs(FlxMath.roundDecimal(#if cpp cpp.vm.Gc.memInfo64(cpp.vm.Gc.MEM_INFO_USAGE) #else System.totalMemory #end / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " MB";
 			#end
 
