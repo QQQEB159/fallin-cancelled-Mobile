@@ -702,10 +702,9 @@ class MainMenuState extends MusicBeatSubstate
 		}
 		player3.dance();
 
-		if(FlxG.sound.music == null || MP4Handler.backFromVideo == true)
+		if(FlxG.sound.music == null)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0.5);
-			MP4Handler.backFromVideo = false;
 		}
 		
 		if (FlxG.sound.music.volume != 0.5)
