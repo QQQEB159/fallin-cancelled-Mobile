@@ -122,6 +122,9 @@ class BetterBeanSelState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
+		addTouchPad("LEFT_RIGHT", "A_B");
+		addTouchPadCamera();
+		
 		super.create();
 	}
 
