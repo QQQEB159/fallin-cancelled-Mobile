@@ -314,6 +314,9 @@ class FreeplayState extends MusicBeatSubstate
 
 		menuTrans(0);
 
+		addTouchPad("LEFT_RIGHT", "A_B");
+		addTouchPadCamera();
+		
 		super.create();
 	}
 

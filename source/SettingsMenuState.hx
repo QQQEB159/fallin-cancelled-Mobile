@@ -123,6 +123,9 @@ class SettingsMenuState extends MusicBeatSubstate
 
 		menuTrans(0);
 
+		addTouchPad("LEFT_RIGHT", "A_B");
+		addTouchPadCamera();
+		
 		super.create();
 	}
 
@@ -179,19 +182,19 @@ class SettingsMenuState extends MusicBeatSubstate
 
 		if (!selectedSomethin && BackgroundState.transitioning == false)
 		{
-			if (controls.UI_LEFT_P)
+			if (controls.UI_LEFT_P || touchPad.buttonLeft.justPressed)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.UI_RIGHT_P)
+			if (controls.UI_RIGHT_P || touchPad.buttonRight.justPressed)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
 			}
 
-			if (controls.BACK)
+			if (controls.BACK || touchPad.buttonB.justPressed)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -215,7 +218,7 @@ class SettingsMenuState extends MusicBeatSubstate
 				}
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT || touchPad.buttonA.justPressed)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu2'));

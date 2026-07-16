@@ -26,13 +26,15 @@ class FlashingState extends MusicBeatState
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Hey, watch out!\n
 			This Mod contains some flashing lights!\n
-			Press P to disable them now or go to Options Menu.\n
-			Press ENTER to ignore this message.\n
+			Press B to disable them now or go to Options Menu.\n
+			Press A to ignore this message.\n
 			You've been warned!",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
+		
+		addTouchPad("NONE", "A_B");
 	}
 
 	override function update(elapsed:Float)
@@ -40,7 +42,7 @@ class FlashingState extends MusicBeatState
 		if(!leftState)
 		{
 			var accept:Bool = controls.ACCEPT;
-			if (FlxG.keys.justPressed.P)
+			if (FlxG.keys.justPressed.P || touchPad.buttonB.justPressed)
 			{
 				FlxG.save.data.HasPlayed = true;
 				leftState = true;

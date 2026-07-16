@@ -165,6 +165,8 @@ class TitleState extends MusicBeatState
 		FlxG.keys.preventDefaultKeys = [TAB];
 
 		PlayerSettings.init();
+		
+		mobile.MobileData.init();
 
 		// DEBUG BULLSHIT
 

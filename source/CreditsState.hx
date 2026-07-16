@@ -168,6 +168,9 @@ class CreditsState extends MusicBeatSubstate
 		credback.color = getCurrentBGColor();
 		intendedColor = credback.color;
 		changeSelection();
+		
+		addTouchPad("UP_DOWN", "A_B");
+		
 		super.create();
 	}
 

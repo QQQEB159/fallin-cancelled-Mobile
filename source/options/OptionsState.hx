@@ -30,11 +30,14 @@ using StringTools;
 
 class OptionsState extends MusicBeatSubstate
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Mobile Options'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 
 	function openSelectedSubstate(label:String) {
+		if (label != "Adjust Delay and Combo"){
+			removeTouchPad();
+		}
 		switch(label) {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
@@ -48,6 +51,8 @@ class OptionsState extends MusicBeatSubstate
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
+			case 'Mobile Options':
+				openSubState(new mobile.options.MobileOptionsSubState());
 		}
 	}
 
@@ -78,6 +83,8 @@ class OptionsState extends MusicBeatSubstate
 		changeSelection();
 		ClientPrefs.saveSettings();
 
+		addTouchPad("UP_DOWN", "A_B_C");
+		
 		super.create();
 	}
 
@@ -103,6 +110,8 @@ class OptionsState extends MusicBeatSubstate
 	override function closeSubState() {
 		FlxG.save.data.OptionsExit = true;
 		super.closeSubState();
+		removeTouchPad();
+		addTouchPad("UP_DOWN", "A_B_C");
 		ClientPrefs.saveSettings();
 	}
 
@@ -115,14 +124,14 @@ class OptionsState extends MusicBeatSubstate
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 
-		if (controls.UI_UP_P) {
+		if (controls.UI_UP_P || touchPad != null && touchPad.buttonUp.justPressed) {
 			changeSelection(-1);
 		}
-		if (controls.UI_DOWN_P) {
+		if (controls.UI_DOWN_P || touchPad != null && touchPad.buttonDown.justPressed) {
 			changeSelection(1);
 		}
 
-		if (controls.BACK) {
+		if (controls.BACK || touchPad != null && touchPad.buttonB.justPressed) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			close();
 			BackgroundState.curMenu = "Settings";
@@ -138,7 +147,7 @@ class OptionsState extends MusicBeatSubstate
 			selectorRight.visible = true;
 		}
 
-		if (controls.ACCEPT) {
+		if (controls.ACCEPT || touchPad != null && touchPad.buttonA.justPressed) {
 			if (curSelected != 2)
 			{
 				grpOptions.visible = false;
@@ -146,6 +155,11 @@ class OptionsState extends MusicBeatSubstate
 				selectorRight.visible = false;
 			}
 			openSelectedSubstate(options[curSelected]);
+		}
+		
+		if (touchPad != null && touchPad.buttonC.justPressed) {
+			touchPad.active = touchPad.visible = false;
+			openSubState(new mobile.MobileControlSelectSubState());
 		}
 	}
 	

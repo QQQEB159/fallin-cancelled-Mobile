@@ -48,7 +48,7 @@ class MobileOptionsSubState extends BaseOptionsMenu
 		rpcTitle = 'Mobile Options Menu'; // for Discord Rich Presence, fuck it
 
 		option = new Option('Mobile Controls Opacity',
-			'Selects the opacity for the mobile buttons (careful not to put it at 0 and lose track of your buttons).', 'controlsAlpha', 'percent', 60);
+			'Selects the opacity for the mobile buttons (careful not to put it at 0 and lose track of your buttons).', 'controlsAlpha', 'percent', 0.6);
 		option.scrollSpeed = 1;
 		option.minValue = 0.001;
 		option.maxValue = 1;
