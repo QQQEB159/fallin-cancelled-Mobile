@@ -128,7 +128,7 @@ class SettingsMenuState extends MusicBeatSubstate
 		
 		super.create();
 	}
-
+	
 	public static function menuTrans(INorOUT)
 	{
 		if (ClientPrefs.menuTrans)
