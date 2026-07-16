@@ -2002,8 +2002,10 @@ class PlayState extends MusicBeatState
 		var video:FlxVideo = new FlxVideo();
 		video.load(filepath);
 		video.play();
+		FlxG.addChildBelowMouse(video);
 		video.onEndReached.add(function()
 		{
+			FlxG.removeChild(video);
 			video.dispose();
 			startAndEnd();
 			return;
