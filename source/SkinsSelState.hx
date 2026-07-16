@@ -227,7 +227,10 @@ class SkinsSelState extends MusicBeatSubstate
 		transBox.antialiasing = ClientPrefs.globalAntialiasing;
 		add(transBox);
 
-		super.create();
+	    addTouchPad("LEFT_RIGHT", "A");
+		addTouchPadCamera();
+	    
+	    super.create();
 	}
 
 	public static function menuTrans(INorOUT)

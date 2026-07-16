@@ -30,7 +30,7 @@
             {
                 "name": "lime",
                 "link": "https://github.com/QQQEB159/lime-8.2.2",
-                "branch": "b60d13d75b97e927ef30abdbdb93d92078b8fa1e"
+                "branch": "main"
             },
             {
 				"name": "linc_luajit",
